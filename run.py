@@ -1,7 +1,11 @@
 # encoding=utf8
 # imports
 import pprint
+import sqlite3
 
+from tqdm import tqdm
+
+conn = sqlite3.connect('web/db.sqlite3')
 
 pp = pprint.PrettyPrinter(indent=4)
 # statements
@@ -52,8 +56,18 @@ unique = []
 
 print("FAV COUNT {},RT COUNT {}, TWEETES {}".format(FAVcount, RTcount, len(tweet)))
 
+c = conn.cursor()
+
+for p in tqdm(person):
+    try:
+        c.execute("INSERT INTO panel_twitterusers VALUES (null,'{}')".format(p))
+        c.execute("COMMIT")
+    except:
+        pass
+        #print("not added: {} , exist".format(p))
+
 # from here on the gui
- 
+
 # TODO :: user activitys
 
 # todo :: lda topic extraction  for each month or day  (or by hashtag)
