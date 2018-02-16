@@ -2,8 +2,9 @@
 <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
     <h1>Dashboard</h1>
 
-    <h2>overview</h2>
+    <h2>user details</h2>
     <div class="table-responsive">
+        <h1>RT : {{rtCount}}</h1>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -14,13 +15,13 @@
             </tr>
             </thead>
             <tbody>
-            {% for user in users %}
+            {% for item in items %}
             <tr>
-                <td><a href="{% url 'detail' user.id  %}">
-                    {{user.id}} </a>
+                <td>
+                    {{item.id}}
                 </td>
-                <td>{{user.username}}</td>
-                <td>{{user.twitts}}</td>
+                <td>{{item.text}}</td>
+                <td>{{item.date}}</td>
             </tr>
             {% endfor %}
             </tbody>

@@ -19,5 +19,7 @@ from panel import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index)
+    url(r'^$', views.index, name="home"),
+    url(r'^reports$', views.reports, name="reports"),
+    url(r'^user/(?P<id>\d{0,50})$', views.detail, name="detail")
 ]
