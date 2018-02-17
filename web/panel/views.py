@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
+from django.db.models import Count
+from django.db.models.query import QuerySet
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.db.models.functions import TruncMonth
 
 # Create your views here.
 from models import TwitterUsers
@@ -25,7 +29,21 @@ def detail(request, id):
 
 
 def reports(request):
-    return render(request, "reports.html")
+    totalRt = TwitterPost.objects.filter(text__contains="RT").count()
+    totalFav = TwitterPost.objects.filter(text__contains="FAV").count()
+
+    rtChart = TwitterPost.objects.filter(text__contains="RT").annotate(dates=TruncMonth('date')).values(
+        'date').annotate(c=Count('id')).values('date', 'c')
+    favsChart = TwitterPost.objects.filter(text__contains="FAV").annotate(dates=TruncMonth('date')).values(
+        'date').annotate(c=Count('id')).values('date', 'c')
+
+    data = {
+        "totalRt": totalRt,
+        "totalFav": totalFav,
+        "favsChart": favsChart,
+        "rtChart": rtChart
+    }
+    return render(request, "reports.html", data)
 
 
 def index(request):
