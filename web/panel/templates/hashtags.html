@@ -4,10 +4,7 @@
 
     <h2>user details</h2>
     <div class="table-responsive">
-        <h3>RT : {{rtCount}}</h3>
-        <h3>MENTIONS : {{mentionCount}}</h3>
-
-        <h3>USER ID : {{userid}}</h3>
+        <h1>RT : {{rtCount}}</h1>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -21,7 +18,7 @@
             {% for item in items %}
             <tr>
                 <td>
-                    <a href="{% url 'tweet' item.id %}"> {{item.id}}</a>
+                   <a href="{% url 'tweet' item.id %}"> {{item.id}}</a>
                 </td>
                 <td>{{item.text|safe}}</td>
                 <td>{{item.date}}</td>

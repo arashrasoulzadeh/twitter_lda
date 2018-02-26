@@ -21,5 +21,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name="home"),
     url(r'^reports$', views.reports, name="reports"),
-    url(r'^user/(?P<id>\d{0,50})$', views.detail, name="detail")
+    url(r'^bulkuser', views.bulkuser, name="bulkuser"),
+    url(r'^user/(?P<id>\d{0,50})$', views.detail, name="detail"),
+    url(r'^hashtags/(?P<hashtag>\w{0,50})$', views.hashtags, name="hashtags"),
+    url(r'^tweet/(?P<id>\d{0,50})$', views.tweet, name="tweet")
 ]

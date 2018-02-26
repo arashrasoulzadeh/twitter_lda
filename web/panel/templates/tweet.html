@@ -1,0 +1,35 @@
+{% include "header.html" %}
+{% load static %}
+<main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+    <h1>Dashboard</h1>
+                <style>
+                    .token{
+                        background-color: #5b80b2;
+                        padding: 4px;
+                        margin: 4px;
+                    }
+                </style>
+    <h2>user details</h2>
+         <h1>Details for tweet #{{twitt.id}}</h1>
+        <br>
+        {{twitt.text}}
+        <Br><br>
+        <hr>
+        Positive Score : {{pos_score}}<br>
+        Negative Score : {{neg_score}}
+        <br>
+        <hr>
+    tokens : <br><br>
+        {% for token in tokens %}
+        <button class=" btn-sm">  {{token}}</button>
+        {% endfor %}   <Br><br><Br>
+        entities : <br><br>
+        {% for tag in tags %}
+        <button class=" btn-sm"> {{tag}}</button>
+        {% endfor %}
+    <br><br>
+    <img src="{% static "tree.png" %}">
+ </main>
+</div>
+</div>
+{% include "footer.html" %}
