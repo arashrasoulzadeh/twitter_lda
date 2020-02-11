@@ -1,6 +1,6 @@
 certifi==2017.11.5
 chardet==3.0.4
-Django==1.11.10
+Django==1.11.28
 hupper==1.0
 idna==2.6
 ngram==3.3.2
@@ -23,7 +23,7 @@ zope.deprecation==4.3.0
 zope.interface==4.4.3
 certifi==2017.11.5
 chardet==3.0.4
-Django==1.11.10
+Django==1.11.28
 hupper==1.0
 idna==2.6
 ngram==3.3.2
@@ -47,7 +47,7 @@ zope.deprecation==4.3.0
 zope.interface==4.4.3
 certifi==2017.11.5
 chardet==3.0.4
-Django==1.11.10
+Django==1.11.28
 hupper==1.0
 idna==2.6
 ngram==3.3.2
